@@ -103,18 +103,20 @@ else:
     CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ALLOWED_ORIGINS = [
-    'https://api.itcenter.uz',
+    'http://api.themagicai.com',
+    'https://api.themagicai.com',
     'http://localhost:3000',
     'http://127.0.0.1:8000'
 ]
 CORS_ORIGIN_WHITELIST = (
-    'https://api.itcenter.uz',
+    'http://api.themagicai.com',
+    'https://api.themagicai.com',
     'http://localhost:3000',
     'http://127.0.0.1:8000'
 )
 
 CORS_ALLOWED_ORIGIN_REGEXES = [
-    r"^https://\w+\.api.center\.uz",
+    r"^https://\w+\.api.themagicai\.com",
 ]
 
 # AUTHENTICATION
