@@ -103,12 +103,14 @@ else:
     CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ALLOWED_ORIGINS = [
+    "http://217.76.61.33",
     'http://api.themagicai.com',
     'https://api.themagicai.com',
     'http://localhost:3000',
     'http://127.0.0.1:8000'
 ]
 CORS_ORIGIN_WHITELIST = (
+    "http://217.76.61.33",
     'http://api.themagicai.com',
     'https://api.themagicai.com',
     'http://localhost:3000',
