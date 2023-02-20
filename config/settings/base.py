@@ -39,27 +39,13 @@ LOCALE_PATHS = [str(BASE_DIR / "locale")]
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-if DEBUG:
-    DATABASES = {
-        "default": env.db(
-            "DATABASE_URL",
-            default="postgres://postgres/postgres",
-        ),
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'itcente3_ai',
-            'USER': 'itcente3_user',
-            'PASSWORD': '!1234567A@user',
-            'HOST': 'localhost',
-            'PORT': '3306',
-            'OPTIONS': {
-                'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-            }
-        }
-    }
+
+DATABASES = {
+    "default": env.db(
+        "DATABASE_URL",
+        default="postgres://postgres/postgres",
+    ),
+}
 
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 # https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DEFAULT_AUTO_FIELD
