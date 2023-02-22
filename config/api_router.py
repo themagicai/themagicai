@@ -1,6 +1,8 @@
 from django.conf import settings
 from rest_framework.routers import DefaultRouter, SimpleRouter
 from django.urls import path
+
+from themagicai.chatGPT.views import LetterAPIView
 from themagicai.users.api.views import UserViewSet
 from themagicai.users.views import RegisterAPIView, LogoutView, PasswordChangeView, ResetPasswordView
 from rest_framework_simplejwt.views import TokenRefreshView, TokenObtainPairView
@@ -11,6 +13,7 @@ else:
     router = SimpleRouter()
 
 router.register("users", UserViewSet)
+router.register("make-letter", LetterAPIView)
 
 app_name = "api"
 urlpatterns = router.urls

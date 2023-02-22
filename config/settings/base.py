@@ -86,7 +86,8 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "themagicai.users",
-    "themagicai.app"
+    "themagicai.app",
+    "themagicai.chatGPT",
 
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -105,12 +106,16 @@ else:
 CORS_ALLOWED_ORIGINS = [
     "http://217.76.61.33",
     'http://api.themagicai.com',
+    'http://apis.themagicai.com',
+    'https://apis.themagicai.com',
     'https://api.themagicai.com',
     'http://localhost:3000',
     'http://127.0.0.1:8000'
 ]
 CORS_ORIGIN_WHITELIST = (
     "http://217.76.61.33",
+    'http://apis.themagicai.com',
+    'https://apis.themagicai.com',
     'http://api.themagicai.com',
     'https://api.themagicai.com',
     'http://localhost:3000',
@@ -119,6 +124,7 @@ CORS_ORIGIN_WHITELIST = (
 
 CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^https://\w+\.api.themagicai\.com",
+    r"^https://\w+\.apis.themagicai\.com",
 ]
 
 # AUTHENTICATION
