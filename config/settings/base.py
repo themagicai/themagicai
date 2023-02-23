@@ -77,7 +77,10 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
-    "django_celery_beat",
+
+    'django_celery_results',
+    'django_celery_beat',
+
     "rest_framework",
     "rest_framework.authtoken",
     "corsheaders",
@@ -295,7 +298,7 @@ LOGGING = {
 # ------------------------------------------------------------------------------
 # if USE_TZ:
 #     CELERY_TIMEZONE = TIME_ZONE
-
+#
 # CELERY_BROKER_URL = env("CELERY_BROKER_URL")
 # CELERY_RESULT_BACKEND = CELERY_BROKER_URL
 # CELERY_RESULT_EXTENDED = True

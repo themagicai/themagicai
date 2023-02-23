@@ -26,3 +26,7 @@ drf-spectacular==0.25.1  # https://github.com/tfranzel/drf-spectacular
 djangorestframework-simplejwt==5.2.2
 dj-rest-auth==3.0.0
 openai==0.26.5
+django_celery_results
+django_celery_beat
+celery
+redis
