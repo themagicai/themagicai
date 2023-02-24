@@ -8,7 +8,7 @@ class LetterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Letter
-        exclude = ['result', 'user', 'about', 'requirement']
+        exclude = ['result', 'requirement']
 
 
 class LetterDetailSerializer(serializers.ModelSerializer):
@@ -24,7 +24,7 @@ class PostCVSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PostCV
-        exclude = ['result', 'user', 'about', 'requirement']
+        exclude = ['result', 'requirement']
 
 
 class PostCVDetailSerializer(serializers.ModelSerializer):

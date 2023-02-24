@@ -19,22 +19,30 @@ User = get_user_model()
 
 
 def request_to_chatGPT(name, company, position, requirement, skills, about, type):
-    token = 350 if type != 'CV' else 600
-    req = f"Write me a {type} for the vacancy below on my experience\n\nFullname: {name}\n\nPosition: {position}\nCompany: {company}\n Requirement: {requirement}\nSkills:{skills}\nAbout: {about}"
+    if type not in ['letter', 'CV']:
+        return {'error': True}
+
+    if type == 'CV':
+        token = 600
+        req = f"Write me a CV for the job below based on my experience in Resume below\n\nFullname: {name}\n\nPosition: {position}\nCompany: {company}\n Requirement: {requirement}\nSkills:{skills}\nAbout: {about}"
+    elif type == 'letter':
+        token = 350
+        req = f"Write me a cover letter for the vacancy below on my experience\n\nFullname: {name}\n\nPosition: {position}\nCompany: {company}\n Requirement: {requirement}\nSkills:{skills}\nAbout: {about}"
 
     openai.api_key = env("CHAT_GPT_SECRET_KEY")
     try:
         response = openai.Completion.create(
             engine="text-davinci-003",
             prompt=req,
-            max_tokens=5
+            max_tokens=token
         )
     except AuthenticationError:
         return {"error": True}
     return response
 
 
-class PostCVAPIView(viewsets.ModelViewSet):
+class PostCVAPIView(mixins.CreateModelMixin, mixins.UpdateModelMixin,
+                    mixins.ListModelMixin, GenericViewSet):
     queryset = PostCV.objects.all()
     serializer_class = PostCVSerializer
     permission_classes = [IsAuthenticated]
@@ -82,10 +90,8 @@ class PostCVDetailAPIView(mixins.RetrieveModelMixin, mixins.DestroyModelMixin, G
     permission_classes = [IsAuthenticated]
 
 
-class LetterAPIView(mixins.CreateModelMixin,
-                    mixins.UpdateModelMixin,
-                    mixins.ListModelMixin,
-                    GenericViewSet):
+class LetterAPIView(mixins.CreateModelMixin, mixins.UpdateModelMixin,
+                    mixins.ListModelMixin, GenericViewSet):
     queryset = Letter.objects.all()
     serializer_class = LetterSerializer
     permission_classes = [IsAuthenticated]
@@ -110,7 +116,7 @@ class LetterAPIView(mixins.CreateModelMixin,
         response = request_to_chatGPT(request.user.name, serializer.data.get('company'),
                                       serializer.data.get('position'),
                                       serializer.data.get('requirement'),
-                                      res, serializer.data.get('about'), 'cover letter')
+                                      res, serializer.data.get('about'), 'letter')
         if response.get('error'):
             return Response({"message": "There was an error, please connect with admin"},
                             status=status.HTTP_400_BAD_REQUEST)
