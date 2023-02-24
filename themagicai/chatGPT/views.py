@@ -34,7 +34,7 @@ def request_to_chatGPT(name, company, position, requirement, skills, about, type
         response = openai.Completion.create(
             engine="text-davinci-003",
             prompt=req,
-            max_tokens=token
+            max_tokens=5
         )
     except AuthenticationError:
         return {"error": True}
