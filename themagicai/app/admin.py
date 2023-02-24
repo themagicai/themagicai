@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from themagicai.app.models import Skill
+
+
+@admin.register(Skill)
+class UserAdmin(admin.ModelAdmin):
+    list_display = ["name", "is_active"]
+    search_fields = ["name"]
+    list_filter = ["is_active"]

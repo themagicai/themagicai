@@ -124,13 +124,14 @@ CORS_ALLOWED_ORIGINS = [
     'http://apis.themagicai.com',
     'https://apis.themagicai.com',
     'https://api.themagicai.com',
-    "api.themagicai.com",
     'http://localhost:3000',
     'http://127.0.0.1:8000'
 ]
 CORS_ORIGIN_WHITELIST = (
     "http://217.76.61.33",
-    "api.themagicai.com",
+    'https://apis.themagicai.com',
+    'http://api.themagicai.com',
+    'https://api.themagicai.com',
     'http://localhost:3000',
     'http://127.0.0.1:8000'
 )

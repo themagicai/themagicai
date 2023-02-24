@@ -6,6 +6,7 @@ User = get_user_model()
 
 class Skill(models.Model):
     name = models.CharField(max_length=50)
+    is_active = models.BooleanField(default=False)
 
     class Meta:
         verbose_name_plural = "Skills"
