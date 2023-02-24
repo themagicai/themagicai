@@ -346,6 +346,9 @@ SOCIALACCOUNT_FORMS = {"signup": "themagicai.users.forms.UserSocialSignupForm"}
 # django-rest-framework
 # -------------------------------------------------------------------------------
 # django-rest-framework - https://www.django-rest-framework.org/api-guide/settings/
+
+PAGE_SIZE = 10
+
 REST_FRAMEWORK = {
     # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     # 'PAGE_SIZE': 10,
@@ -379,8 +382,8 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "1.0.0",
     # "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAdminUser"],
     "SERVERS": [
-        # {"url": "https://api.itcenter.uz", "description": "Production server"},
-        {"url": "http://127.0.0.1:8000", "description": "Local Development server"},
+        {"url": "https://api.itcenter.uz", "description": "Production server"},
+        # {"url": "http://127.0.0.1:8000", "description": "Local Development server"},
     ],
     'SCHEMA_PATH_PREFIX': '/v1/',
 }

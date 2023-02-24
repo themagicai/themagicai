@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter, SimpleRouter
 from django.urls import path
 
 from themagicai.app.views import SkillAPIView
-from themagicai.chatGPT.views import LetterAPIView
+from themagicai.chatGPT.views import LetterAPIView, PostCVAPIView, LetterDetailAPIView, PostCVDetailAPIView
 from themagicai.users.api.views import UserViewSet
 from themagicai.users.views import RegisterAPIView, LogoutView, PasswordChangeView, ResetPasswordView
 from rest_framework_simplejwt.views import TokenRefreshView, TokenObtainPairView
@@ -15,6 +15,9 @@ else:
 
 router.register("users", UserViewSet)
 router.register("make-letters", LetterAPIView)
+router.register("letter-detail", LetterDetailAPIView)
+router.register("make-cv", PostCVAPIView)
+router.register("cv-detail", PostCVDetailAPIView)
 router.register("skills", SkillAPIView)
 
 app_name = "api"

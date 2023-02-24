@@ -24,11 +24,10 @@ class Grade(models.Model):
 
 class Letter(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    grade = models.ForeignKey(Grade, on_delete=models.SET_NULL, null=True)
     company = models.CharField(max_length=50)
     position = models.CharField(max_length=50)
     requirement = models.TextField()
-    skills = models.ManyToManyField(Skill, blank=True)
+    skills = models.ManyToManyField(Skill)
     about = models.TextField()
     result = models.TextField(null=True, blank=True)
 
@@ -38,11 +37,10 @@ class Letter(models.Model):
 
 class PostCV(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    grade = models.ForeignKey(Grade, on_delete=models.SET_NULL, null=True)
     company = models.CharField(max_length=50)
     position = models.CharField(max_length=50)
     requirement = models.TextField()
-    skills = models.ManyToManyField(Skill, blank=True)
+    skills = models.ManyToManyField(Skill)
     about = models.TextField()
     result = models.TextField(null=True, blank=True)
 

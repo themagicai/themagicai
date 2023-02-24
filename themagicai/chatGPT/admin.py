@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from themagicai.app.models import Letter, PostCV
+
+admin.site.register(Letter)
+admin.site.register(PostCV)
