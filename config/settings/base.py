@@ -196,8 +196,8 @@ MIDDLEWARE = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
 
 STATIC_URL = 'static/'
-STATIC_ROOT = str(BASE_DIR / "staticfiles")
-STATICFILES_DIRS = [str(BASE_DIR / "static")]
+STATIC_ROOT = env("STATIC_ROOT", default=str(APPS_DIR / "staticfiles"))
+STATICFILES_DIRS = [env("STATICFILES_DIRS", default=str(APPS_DIR / "static"))]
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
@@ -207,7 +207,7 @@ STATICFILES_FINDERS = [
 # MEDIA
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-MEDIA_ROOT = str(BASE_DIR / "media")
+MEDIA_ROOT = env("STATIC_ROOT", default=str(APPS_DIR / "media"))
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-url
 MEDIA_URL = "/media/"
 
