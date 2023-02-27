@@ -10,10 +10,9 @@ from .serializers import UserSerializer
 User = get_user_model()
 
 
-class UserViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+class UserViewSet(RetrieveModelMixin, UpdateModelMixin, GenericViewSet):
     serializer_class = UserSerializer
     queryset = User.objects.all()
-    lookup_field = "email"
 
     def get_queryset(self, *args, **kwargs):
         assert isinstance(self.request.user.id, int)
