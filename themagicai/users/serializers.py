@@ -9,12 +9,11 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = [
             "id",
-            "username",
             "email"
         ]
 
         extra_kwargs = {
-            "url": {"view_name": "api:user-detail", "lookup_field": "username"}
+            "url": {"view_name": "api:user-detail", "lookup_field": "email"}
         }
 
 
@@ -22,7 +21,7 @@ class UserOrderDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = [
-            "username",
+            "email",
             "name",
         ]
 
@@ -32,7 +31,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'name', 'username', 'email', 'password',)
+        fields = ('id', 'name', 'email', 'password',)
 
     def create(self, validated_data):
         return User.objects.create_user(**validated_data)
