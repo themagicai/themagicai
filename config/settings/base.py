@@ -113,33 +113,33 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules
 MIGRATION_MODULES = {"sites": "themagicai.contrib.sites.migrations"}
 
-if DEBUG:
-    CORS_ORIGIN_ALLOW_ALL = True
-else:
-    CORS_ORIGIN_ALLOW_ALL = False
+# if DEBUG:
+CORS_ORIGIN_ALLOW_ALL = True
+# else:
+#     CORS_ORIGIN_ALLOW_ALL = False
 
-CORS_ALLOWED_ORIGINS = [
-    "http://217.76.61.33",
-    'http://api.themagicai.com',
-    'http://apis.themagicai.com',
-    'https://apis.themagicai.com',
-    'https://api.themagicai.com',
-    'http://localhost:3000',
-    'http://127.0.0.1:8000'
-]
-CORS_ORIGIN_WHITELIST = (
-    "http://217.76.61.33",
-    'https://apis.themagicai.com',
-    'http://api.themagicai.com',
-    'https://api.themagicai.com',
-    'http://localhost:3000',
-    'http://127.0.0.1:8000'
-)
+# CORS_ALLOWED_ORIGINS = [
+#     "http://217.76.61.33",
+#     'http://api.themagicai.com',
+#     'http://apis.themagicai.com',
+#     'https://apis.themagicai.com',
+#     'https://api.themagicai.com',
+#     'http://localhost:3000',
+#     'http://127.0.0.1:8000'
+# ]
+# CORS_ORIGIN_WHITELIST = (
+#     "http://217.76.61.33",
+#     'https://apis.themagicai.com',
+#     'http://api.themagicai.com',
+#     'https://api.themagicai.com',
+#     'http://localhost:3000',
+#     'http://127.0.0.1:8000'
+# )
 
-CORS_ALLOWED_ORIGIN_REGEXES = [
-    r"^https://\w+\.api.themagicai\.com",
-    r"^https://\w+\.apis.themagicai\.com",
-]
+# CORS_ALLOWED_ORIGIN_REGEXES = [
+#     r"^https://\w+\.api.themagicai\.com",
+#     r"^https://\w+\.apis.themagicai\.com",
+# ]
 
 # AUTHENTICATION
 # ------------------------------------------------------------------------------
